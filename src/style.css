@@ -20,4 +20,7 @@
 #card-entire {
   max-width: 100%;
   background-color: grey;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid black;
 }
