@@ -1,3 +1,23 @@
-h1 {
-  color: red;
+.location {
+  text-align: center;
+  color: blue;
+  padding: 20px;
+}
+.row {
+  text-align: center;
+}
+.card-second {
+  padding-top: 50px;
+}
+#emoji {
+  font-size: 60px;
+  position: relative;
+}
+#greeting {
+  font-size: 20px;
+}
+
+#card-entire {
+  max-width: 100%;
+  background-color: grey;
 }
