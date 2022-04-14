@@ -13,17 +13,25 @@ li {
 .location {
   margin: 0;
   color: brown;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 #emoji {
-  font-size: 60px;
+  font-size: 70px;
   position: relative;
+  display: inline-block;
+  margin-top: unset;
+  vertical-align: top;
+  width: 60px;
+  bottom: 20px;
 }
 #greeting {
   padding: 0;
   margin-bottom: 0;
+  font-size: 30px;
+  position: relative;
+  bottom: 15px;
 }
 
 #card-entire {
@@ -31,8 +39,26 @@ li {
   padding: 20px;
   border: 1px solid black;
   text-align: center;
+  background-color: #ffe168;
 }
 #wrapper-app {
   margin: 30px auto;
   max-width: 600px;
+}
+.temperature-number {
+  font-size: 50px;
+  color: green;
+}
+
+.degrees {
+  color: blueviolet;
+  position: relative;
+  top: -25px;
+}
+.float-right {
+  margin: auto;
+}
+.left-column {
+  position: relative;
+  bottom: 53px;
 }
