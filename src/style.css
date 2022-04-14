@@ -24,7 +24,7 @@ li {
   margin-top: unset;
   vertical-align: top;
   width: 60px;
-  bottom: 20px;
+  top: -30px;
 }
 #greeting {
   padding: 0;
@@ -32,6 +32,7 @@ li {
   font-size: 30px;
   position: relative;
   bottom: 15px;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 #card-entire {
@@ -40,20 +41,22 @@ li {
   border: 1px solid black;
   text-align: center;
   background-color: #ffe168;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode";
 }
 #wrapper-app {
   margin: 30px auto;
   max-width: 600px;
 }
 .temperature-number {
-  font-size: 50px;
+  font-size: 60px;
   color: green;
 }
 
 .degrees {
   color: blueviolet;
   position: relative;
-  top: -25px;
+  top: -31px;
 }
 .float-right {
   margin: auto;
@@ -61,4 +64,10 @@ li {
 .left-column {
   position: relative;
   bottom: 53px;
+}
+.second-column {
+  color: white;
+  line-height: 35px;
+  position: relative;
+  top: -38px;
 }
