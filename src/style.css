@@ -29,10 +29,10 @@ li {
 #greeting {
   padding: 0;
   margin-bottom: 0;
-  font-size: 30px;
+  font-size: 25px;
   position: relative;
   bottom: 15px;
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 600;
 }
 
 #card-entire {
