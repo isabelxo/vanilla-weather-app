@@ -24,7 +24,7 @@ function getDate(timestamp) {
 
 function displayTemp(response) {
   console.log(response.data.main.temp);
-  console.log(response.data);
+
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let maxTempElement = document.querySelector("#max-temp");
