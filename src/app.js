@@ -8,6 +8,11 @@ function getDate(timestamp) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
+  if (timestamp < 12) {
+    document.querySelector("#greeting").innerHTML = `Good Morning`;
+  } else {
+    document.querySelector("#greeting").innerHTML = `Good Afternoon`;
+  }
   let days = [
     "Sunday",
     "Monday",
@@ -46,6 +51,7 @@ function displayTemp(response) {
 }
 
 let apiKey = "84919b6ce50d5f3343257ed5591f46ea";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Dallas&appid=${apiKey}&units=imperial`;
+let city = "Pueblo";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
 axios.get(apiUrl).then(displayTemp);
