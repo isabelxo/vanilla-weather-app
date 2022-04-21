@@ -28,8 +28,6 @@ function getDate(timestamp) {
 }
 
 function displayTemp(response) {
-  console.log(response.data.main.temp);
-
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let maxTempElement = document.querySelector("#max-temp");
@@ -56,8 +54,22 @@ function displayTemp(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-let apiKey = "84919b6ce50d5f3343257ed5591f46ea";
-let city = "Colorado Springs";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+function search(city) {
+  let apiKey = "84919b6ce50d5f3343257ed5591f46ea";
 
-axios.get(apiUrl).then(displayTemp);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+
+  axios.get(apiUrl).then(displayTemp);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#search-input");
+  search(cityInputElement.value);
+  console.log(cityInputElement.value);
+}
+
+search("Denver");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
