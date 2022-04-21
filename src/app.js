@@ -39,7 +39,10 @@ function displayTemp(response) {
   let windDescriptionElement = document.querySelector("#wind-weather");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+
+  fahrenheitTepmperature = response.data.main.temp;
+
+  temperatureElement.innerHTML = Math.round(fahrenheitTepmperature);
   cityElement.innerHTML = response.data.name;
   maxTempElement.innerHTML = Math.round(response.data.main.temp_max);
   minTempElement.innerHTML = Math.round(response.data.main.temp_min);
@@ -56,9 +59,8 @@ function displayTemp(response) {
 
 function search(city) {
   let apiKey = "84919b6ce50d5f3343257ed5591f46ea";
-
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-
+  console.log(apiUrl);
   axios.get(apiUrl).then(displayTemp);
 }
 
@@ -69,7 +71,32 @@ function handleSubmit(event) {
   console.log(cityInputElement.value);
 }
 
-search("Denver");
+function changeTempToCel(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  fahrenheitTransform.classList.remove("active");
+  celsiusTransform.classList.add("active");
+  let celsiusTemperature = ((fahrenheitTepmperature - 32) * 5) / 9;
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+function changeTempToFahre(event) {
+  event.preventDefault();
+  fahrenheitTransform.classList.add("active");
+  celsiusTransform.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitTepmperature);
+}
+
+let fahrenheitTepmperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let celsiusTransform = document.querySelector("#convert-temp");
+celsiusTransform.addEventListener("click", changeTempToCel);
+
+let fahrenheitTransform = document.querySelector("#change-f");
+fahrenheitTransform.addEventListener("click", changeTempToFahre);
+
+search("Denver");
