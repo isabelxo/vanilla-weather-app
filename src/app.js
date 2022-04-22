@@ -8,7 +8,7 @@ function getDate(timestamp) {
   if (minutes < 10) {
     minutes = `0${minutes}`;
   }
-  if (timestamp < 12) {
+  if (hours < 12) {
     document.querySelector("#greeting").innerHTML = `Good Morning`;
   } else {
     document.querySelector("#greeting").innerHTML = `Good Afternoon`;
@@ -22,8 +22,8 @@ function getDate(timestamp) {
     "Friday",
     "Saturday",
   ];
-  let day = days[date.getDay()];
 
+  let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
 
@@ -39,7 +39,6 @@ function displayTemp(response) {
   let windDescriptionElement = document.querySelector("#wind-weather");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
-
   fahrenheitTepmperature = response.data.main.temp;
 
   temperatureElement.innerHTML = Math.round(fahrenheitTepmperature);
@@ -60,7 +59,6 @@ function displayTemp(response) {
 function search(city) {
   let apiKey = "84919b6ce50d5f3343257ed5591f46ea";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(displayTemp);
 }
 
@@ -68,7 +66,6 @@ function handleSubmit(event) {
   event.preventDefault();
   let cityInputElement = document.querySelector("#search-input");
   search(cityInputElement.value);
-  console.log(cityInputElement.value);
 }
 
 function changeTempToCel(event) {
