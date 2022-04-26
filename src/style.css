@@ -9,7 +9,7 @@ li {
   font-size: 16px;
   font-weight: 100;
 }
-li::first-letter {
+li:first-letter {
   text-transform: capitalize;
 }
 .weather-temp .remove {
@@ -25,6 +25,10 @@ li::first-letter {
 
   padding-top: 30px;
   padding-bottom: 30px;
+}
+.weather-forecast {
+  margin: 20px auto;
+  text-align: center;
 }
 
 #emoji {
@@ -78,4 +82,11 @@ li::first-letter {
   line-height: 35px;
   position: relative;
   top: -38px;
+}
+.weather-forecast-temperatures {
+  font-size: 13px;
+  line-height: 15px;
+}
+.weather-forecast-min {
+  opacity: 0.5;
 }
