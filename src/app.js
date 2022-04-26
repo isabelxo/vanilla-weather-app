@@ -27,6 +27,34 @@ function getDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class= "row">`;
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+  <div class="col-2">
+    <div class="weather-forecast-date"> ${day} </div>
+    <img
+    src="http://openweathermap.org/img/wn/50d@2x.png"
+    alt=""
+    width="42"
+    />
+    <div class="weather-forecast-temperatures">
+    <span class="weather-forecast-max" style="display: inline"> 80° </span>
+    <span class="weather-forecast-min"> 60° </span>
+  </div>
+</div>
+`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayTemp(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
@@ -95,5 +123,5 @@ celsiusTransform.addEventListener("click", changeTempToCel);
 
 let fahrenheitTransform = document.querySelector("#change-f");
 fahrenheitTransform.addEventListener("click", changeTempToFahre);
-
+displayForecast();
 search("Denver");
