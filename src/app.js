@@ -55,7 +55,7 @@ function displayForecast(response) {
     <span class="weather-forecast-max" style="display: inline"> 
     ${Math.round(forecastDay.temp.max)}° </span>
     <span class="weather-forecast-min"> 
-    ${Math.round(forecastDay.temp.min)} </span>
+    ${Math.round(forecastDay.temp.min)}° </span>
   </div>
 </div>
 `;
@@ -67,10 +67,9 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "84919b6ce50d5f3343257ed5591f46ea";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
-  console.log(apiUrl);
+
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -117,32 +116,7 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
-function changeTempToCel(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  fahrenheitTransform.classList.remove("active");
-  celsiusTransform.classList.add("active");
-  let celsiusTemperature = ((fahrenheitTepmperature - 32) * 5) / 9;
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-function changeTempToFahre(event) {
-  event.preventDefault();
-  fahrenheitTransform.classList.add("active");
-  celsiusTransform.classList.remove("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(fahrenheitTepmperature);
-}
-
-let fahrenheitTepmperature = null;
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-let celsiusTransform = document.querySelector("#convert-temp");
-celsiusTransform.addEventListener("click", changeTempToCel);
-
-let fahrenheitTransform = document.querySelector("#change-f");
-fahrenheitTransform.addEventListener("click", changeTempToFahre);
 
 search("Denver");
